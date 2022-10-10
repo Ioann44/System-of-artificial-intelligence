@@ -10,7 +10,7 @@ vector<double> weights;
 const int numOfInputs = 6;
 //int dataSetNum = 1 << numOfInputs;
 int dataSetNum;
-double corr_d;
+double corr_d, startWeight;
 //auto activationFunc = [&](double x) {return 1 / (1 + exp(-x)); };
 auto activationFunc = [&](double x) {return x / 6; };
 
@@ -35,7 +35,8 @@ int main()
 	string toDo;
 	fin >> toDo;
 	if (toDo == "learn") {
-		fin >> dataSetNum >> corr_d;
+		fin >> dataSetNum >> corr_d >> startWeight;
+		fill(weights.begin(), weights.end(), startWeight);
 
 		vector<int> nums(1 << numOfInputs);
 		for (int i = 0; i < 1 << numOfInputs; i++) {
