@@ -9,8 +9,8 @@ using namespace std;
 vector<double> weights;
 const int numOfInputs = 6;
 //int dataSetNum = 1 << numOfInputs;
-int dataSetNum = 64;
-double corr_d = 0.1;
+int dataSetNum;
+double corr_d;
 //auto activationFunc = [&](double x) {return 1 / (1 + exp(-x)); };
 auto activationFunc = [&](double x) {return x / 6; };
 
@@ -35,6 +35,7 @@ int main()
 	string toDo;
 	fin >> toDo;
 	if (toDo == "learn") {
+		fin >> dataSetNum >> corr_d;
 
 		vector<int> nums(1 << numOfInputs);
 		for (int i = 0; i < 1 << numOfInputs; i++) {
